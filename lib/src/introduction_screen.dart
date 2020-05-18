@@ -145,8 +145,10 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   }
 
   Future<void> _onSkip() async {
-    if (widget.onSkip != null) return widget.onSkip();
-    await skipToEnd();
+    //if (widget.onSkip != null) return widget.onSkip();
+    //await skipToEnd();
+    
+     animateScroll(min(_currentPage.round() - 1, widget.pages.length - 1));
   }
 
   Future<void> skipToEnd() async {
@@ -176,9 +178,11 @@ class IntroductionScreenState extends State<IntroductionScreen> {
   @override
   Widget build(BuildContext context) {
     final isLastPage = (_currentPage.round() == widget.pages.length - 1);
-    bool isSkipBtn = (!_isSkipPressed && !isLastPage && widget.showSkipButton);
+    final isFirstPage = (_currentPage.round() == 0);
+    //!_isSkipPressed && isLastPage && isFirstPage && 
+    bool isSkipBtn = (widget.showSkipButton && !isFirstPage);
 
-    final skipBtn = IntroButton(
+    final skipBtn =IntroButton(
       child: widget.skip,
       onPressed: isSkipBtn ? _onSkip : null,
     );
