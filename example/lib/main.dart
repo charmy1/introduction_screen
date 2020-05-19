@@ -82,7 +82,20 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           image: AssetImage("assets/img3.jpg"),
           decoration: pageDecoration,
         ),
-        PageViewModel(
+      /*  PageViewModel(
+          title: "Kids and teens",
+          bodyWidget: Column(
+            children: <Widget>[
+              Text("one"),
+              Text("two"),
+            ],
+          ),
+          *//*body:
+              "Kids and teens can track their stocks 24/7 and place trades that you approve.",*//*
+          image: AssetImage("assets/img3.jpg"),
+          decoration: pageDecoration,
+        ),*/
+        /*PageViewModel(
           title: "Another title page",
           body: "Another beautiful body text for this example onboarding",
           image: AssetImage("assets/img2.jpg"),
@@ -113,11 +126,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           ),
           image: AssetImage("assets/img2.jpg"),
           decoration: pageDecoration,
-        ),
+        ),*/
       ],
       onDone: () => _onIntroEnd(context),
       //onSkip: () => _onIntroEnd(context), // You can override onSkip callback
-      showSkipButton: true,
+     // showSkipButton: true,
       skipFlex: 0,
       nextFlex: 0,
       skip:const Icon(Icons.arrow_forward),

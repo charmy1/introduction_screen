@@ -235,11 +235,13 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                         ? skipBtn
                         : Opacity(opacity: 0.0, child: skipBtn),
                   ),
-                  (widget.pages.length-1==_currentPage)?Container(height: 0,width: 0,): Expanded(
+                  Expanded(
                     flex: widget.dotsFlex,
                     child: Center(
+
+
                       child: widget.isProgress
-                          ? DotsIndicator(
+                          ?   (_currentPage.round() == widget.pages.length - 1)?Container(height: 0,width: 0,):DotsIndicator(
                               dotsCount: widget.pages.length,
                               position: _currentPage,
                               decorator: widget.dotsDecorator,
