@@ -10,21 +10,21 @@ class IntroPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: page.decoration.pageColor,
-      decoration: page.decoration.boxDecoration,
+     // color: page.decoration.pageColor,
+      decoration: BoxDecoration(
+    image: DecorationImage(
+
+      image:page.image,
+   // image: AssetImage("assets/images/bulb.jpg"),
+    fit: BoxFit.cover,
+    ),
+    ),
       child: SafeArea(
         top: false,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            if (page.image != null)
-              Expanded(
-                flex: page.decoration.imageFlex,
-                child: Padding(
-                  padding: page.decoration.imagePadding,
-                  child: page.image,
-                ),
-              ),
+
             Expanded(
               flex: page.decoration.bodyFlex,
               child: Padding(

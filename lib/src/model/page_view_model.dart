@@ -16,7 +16,7 @@ class PageViewModel {
 
   /// Image of page
   /// Tips: Wrap your image with an alignment widget like Align or Center
-  final Widget image;
+  final AssetImage image;
 
   /// Footer widget, you can add a button for example
   final Widget footer;

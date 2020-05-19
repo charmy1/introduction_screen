@@ -55,6 +55,7 @@ class IntroductionScreen extends StatefulWidget {
   final Color globalBackgroundColor;
 
   /// Dots decorator to custom dots color, size and spacing
+
   final DotsDecorator dotsDecorator;
 
   /// Animation duration in millisecondes
@@ -140,15 +141,24 @@ class IntroductionScreenState extends State<IntroductionScreen> {
     _pageController = PageController(initialPage: initialPage);
   }
 
+/*
   void _onNext() {
     animateScroll(min(_currentPage.round() + 1, widget.pages.length - 1));
   }
+*/
+
+  Future<void> _onNext() async {
+    if (widget.onSkip != null) return widget.onSkip();
+    await skipToEnd();
+
+    // animateScroll(min(_currentPage.round() - 1, widget.pages.length - 1));
+  }
 
   Future<void> _onSkip() async {
-    //if (widget.onSkip != null) return widget.onSkip();
-    //await skipToEnd();
+    if (widget.onSkip != null) return widget.onSkip();
+    await skipToEnd();
     
-     animateScroll(min(_currentPage.round() - 1, widget.pages.length - 1));
+    // animateScroll(min(_currentPage.round() - 1, widget.pages.length - 1));
   }
 
   Future<void> skipToEnd() async {
@@ -225,7 +235,7 @@ class IntroductionScreenState extends State<IntroductionScreen> {
                         ? skipBtn
                         : Opacity(opacity: 0.0, child: skipBtn),
                   ),
-                  Expanded(
+                  (widget.pages.length-1==_currentPage)?Container(height: 0,width: 0,): Expanded(
                     flex: widget.dotsFlex,
                     child: Center(
                       child: widget.isProgress

@@ -59,27 +59,33 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Fractional shares",
           body:
               "Instead of having to buy an entire share, invest any amount you want.",
-          image: _buildImage('img1'),
+          image: AssetImage("assets/img1.jpg"),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Learn as you go",
           body:
               "Download the Stockpile app and master the market with our mini-lesson.",
-          image: _buildImage('img2'),
+          image: AssetImage("assets/img2.jpg"),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Kids and teens",
-          body:
-              "Kids and teens can track their stocks 24/7 and place trades that you approve.",
-          image: _buildImage('img3'),
+          bodyWidget: Column(
+            children: <Widget>[
+              Text("one"),
+              Text("two"),
+            ],
+          ),
+          /*body:
+              "Kids and teens can track their stocks 24/7 and place trades that you approve.",*/
+          image: AssetImage("assets/img3.jpg"),
           decoration: pageDecoration,
         ),
         PageViewModel(
           title: "Another title page",
           body: "Another beautiful body text for this example onboarding",
-          image: _buildImage('img2'),
+          image: AssetImage("assets/img2.jpg"),
           footer: RaisedButton(
             onPressed: () {
               introKey.currentState?.animateScroll(0);
@@ -105,7 +111,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
               Text(" to edit a post", style: bodyStyle),
             ],
           ),
-          image: _buildImage('img1'),
+          image: AssetImage("assets/img2.jpg"),
           decoration: pageDecoration,
         ),
       ],
@@ -114,9 +120,9 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       showSkipButton: true,
       skipFlex: 0,
       nextFlex: 0,
-      skip: const Text('Skip'),
+      skip:const Icon(Icons.arrow_forward),
       next: const Icon(Icons.arrow_forward),
-      done: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600)),
+      done: Center(child: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600))),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),
