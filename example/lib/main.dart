@@ -135,7 +135,15 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
       nextFlex: 0,
       skip:const Icon(Icons.arrow_forward),
       next: const Icon(Icons.arrow_forward),
-      done: Center(child: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600))),
+      done: Container(
+          color: Colors.green,
+          child: Row(children: <Widget>[
+            Expanded(
+    child: Center(
+      child: const Text('Done', style: TextStyle(fontWeight: FontWeight.w600),
+      ),
+    )
+    )])),
       dotsDecorator: const DotsDecorator(
         size: Size(10.0, 10.0),
         color: Color(0xFFBDBDBD),

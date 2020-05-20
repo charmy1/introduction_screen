@@ -227,7 +227,18 @@ class IntroductionScreenState extends State<IntroductionScreen> {
             left: 16.0,
             right: 16.0,
             child: SafeArea(
-              child: Row(
+              child:(_currentPage.round() == widget.pages.length - 1)?Row(
+                children: <Widget>[
+                  Expanded(
+                    //flex: widget.nextFlex,
+                    child: isLastPage
+                        ? doneBtn
+                        : widget.showNextButton
+                        ? nextBtn
+                        : Opacity(opacity: 0.0, child: nextBtn),
+                  ),
+                ],
+              ):Row(
                 children: [
                   Expanded(
                     flex: widget.skipFlex,
@@ -241,16 +252,23 @@ class IntroductionScreenState extends State<IntroductionScreen> {
 
 
                       child: widget.isProgress
-                          ?   (_currentPage.round() == widget.pages.length - 1)?Container(height: 0,width: 0,):DotsIndicator(
+                          ?   DotsIndicator(
                               dotsCount: widget.pages.length,
                               position: _currentPage,
                               decorator: widget.dotsDecorator,
                             )
-                          : const SizedBox(),
+                          : Center(
+                        //flex: widget.nextFlex,
+                        child: isLastPage
+                            ? doneBtn
+                            : widget.showNextButton
+                            ? nextBtn
+                            : Opacity(opacity: 0.0, child: nextBtn),
+                      ),
                     ),
                   ),
                   Expanded(
-                    flex: widget.nextFlex,
+                    //flex: widget.nextFlex,
                     child: isLastPage
                         ? doneBtn
                         : widget.showNextButton
